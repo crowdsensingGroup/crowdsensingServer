@@ -10,24 +10,34 @@ import java.util.Map;
 @Controller
 @RequestMapping("/task")
 public class TaskController {
-    @RequestMapping("toReleaseTask")
-    public String toReleaseTask() {
-        return "releaseTask";
+    @RequestMapping("toReleaseTaskGroup")
+    public String toReleaseTaskGroup() {
+        return "releaseTask/releaseTaskGroup";
     }
 
-    @RequestMapping("toTaskQuery")
-    public String toTaskQuery() {
-        return "taskQuery";
+    @RequestMapping("toReleaseTask")
+    public String toReleaseTask() {
+        return "releaseTask/releaseTask";
+    }
+
+    @RequestMapping("toQueryTaskGroup")
+    public String toQueryTaskGroup() {
+        return "monitorTask/queryTaskGroup";
+    }
+
+    @RequestMapping("toQueryTask")
+    public String toQueryTask() {
+        return "monitorTask/queryTask";
     }
 
     @RequestMapping("toTaskCompletionRate")
     public String toTaskCompletionRate() {
-        return "taskCompletionRate";
+        return "monitorSystem/taskCompletionRate";
     }
 
     @RequestMapping("toUserAcceptanceRate")
     public String toUserAcceptanceRate() {
-        return "userAcceptanceRate";
+        return "monitorSystem/userAcceptanceRate";
     }
 
     @RequestMapping(value = "/getTask")
