@@ -17,29 +17,72 @@
 <head>
     <title>创建任务组</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="../../../My97DatePicker/WdatePicker.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="page-header">
-                <h1>
-                    创建新的任务组
-                </h1>
-            </div>
+<div class="row clearfix">
+    <div class="col-md-12 column">
+        <div class="page-header">
+            <h1>
+                创建新的任务组
+            </h1>
         </div>
     </div>
+</div>
 <jsp:include page="../home/leftTree.jsp" flush="true"/>
-<div style="float: left;display: inline;padding-left: 10px;width: auto">
+<div style="float: left;display: inline;padding-left: 50px;width: auto">
     <form action="" name="taskGroupForm">
-        任务组名称：<input type="text" name="name"><br>
-        接受任务截至时间：<input type="text" name="acceptanceDeadline"><br>
-        任务开始时间：<input type="text" name="submissionDeadline"><br>
-        任务截至时间：<input type="text" name="startDatetime"><br>
-        提交任务截至时间：<input type="text" name="endDatetime"><br>
-        任务类型：<input type="text" name="taskType"><br>
-        备注：<input type="text" name="remark"><br>
-        <input type="button" value="发布" onclick="releaseTask()">
+        <table style="border-collapse:separate; border-spacing:0px 10px;">
+            <tr>
+                <td>名称：</td>
+                <td><input type="text" name="name"></td>
+            </tr>
+            <tr>
+                <td>接受截至时间：</td>
+                <td><input type="text" name="acceptanceDeadline" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                </td>
+            </tr>
+            <tr>
+                <td>开始时间：</td>
+                <td>
+                    <input type="text" name="submissionDeadline" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                </td>
+            </tr>
+            <tr>
+                <td>截至时间：</td>
+                <td>
+                    <input type="text" name="startDatetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                </td>
+            </tr>
+            <tr>
+                <td>提交截至时间：</td>
+                <td>
+                    <input type="text" name="endDatetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                </td>
+            </tr>
+            <tr>
+                <td>类型：</td>
+                <td>
+                    <select name="taskType" style="width: 200px;">
+                        <option value="拍照">拍照</option>
+                        <option value="测量气温">测量气温</option>
+                        <option value="测量分贝">测量分贝</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>备注：</td>
+                <td><input type="text" name="remark"></td>
+            </tr>
+        </table>
+        <br>
+
+        <div class="row">
+            <div class="col-md-4 column">
+                <input class="btn btn-primary" type="button" value="发布" onclick="releaseTask()">
+            </div>
+        </div>
+
     </form>
 
     <script type="text/javascript">
