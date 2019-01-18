@@ -10,20 +10,14 @@ import java.util.Map;
 @Controller
 @RequestMapping("/task")
 public class TaskController {
-    @RequestMapping("toReleaseTaskGroup")
-    public String toReleaseTaskGroup() {
-        return "releaseTask/releaseTaskGroup";
-    }
+
 
     @RequestMapping("toReleaseTask")
     public String toReleaseTask() {
         return "releaseTask/releaseTask";
     }
 
-    @RequestMapping("toQueryTaskGroup")
-    public String toQueryTaskGroup() {
-        return "monitorTask/queryTaskGroup";
-    }
+
 
     @RequestMapping("toQueryTask")
     public String toQueryTask() {

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TaskGroupDao">
+    <resultMap type="TaskGroup" id="taskGroupResultMap">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="acceptanceDeadline" column="acceptanceDeadline"/>
+        <result property="submissionDeadline" column="submissionDeadline"/>
+        <result property="startDatetime" column="startDatetime"/>
+        <result property="endDatetime" column="endDatetime"/>
+        <result property="taskType" column="taskType"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <insert id="addTaskGroup" parameterType="TaskGroup">
+        INSERT INTO task_group(name,acceptanceDeadline,submissionDeadline,startDatetime,endDatetime,taskType,remark)
+        VALUE (#{name},#{acceptanceDeadline}, #{submissionDeadline}, #{startDatetime}, #{endDatetime}, #{taskType}, #{remark})
+    </insert>
+
+    <delete id="deleteTaskGroupById" parameterType="int">
+        DELETE FROM task_group WHERE id=#{id}
+    </delete>
+
+    <update id="updateTaskGroup" parameterType="TaskGroup">
+        UPDATE paper
+        SET name = #{name},acceptanceDeadline = #{acceptanceDeadline},submissionDeadline = #{submissionDeadline}
+        ,startDatetime = #{startDatetime},endDatetime = #{endDatetime},taskType = #{taskType},remark = #{remark}
+        WHERE  id = #{id}
+    </update>
+
+
+    <select id="queryAllTaskGroup" resultMap="taskGroupResultMap">
+        SELECT id,name,acceptanceDeadline,submissionDeadline,startDatetime,endDatetime,taskType,remark
+        FROM task_group
+    </select>
+
+</mapper>
