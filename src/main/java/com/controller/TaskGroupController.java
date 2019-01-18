@@ -16,13 +16,18 @@ public class TaskGroupController {
     private TaskGroupService taskGroupService;
 
     @RequestMapping("toRelease")
-    public String toReleaseTaskGroup() {
+    public String toRelease() {
         return "releaseTask/releaseTaskGroup";
     }
 
+    @RequestMapping("/releaseTask")
+    public String releaseTask(TaskGroup taskGroup) {
+        taskGroupService.addTaskGroup(taskGroup);
+        return "redirect:/taskGroup/toAllTaskGroup";
+    }
 
     @RequestMapping("toAllTaskGroup")
-    public String list(Model model) {
+    public String toAllTaskGroup(Model model) {
         List<TaskGroup> list = taskGroupService.queryAllTaskGroup();
         model.addAttribute("list", list);
         return "monitorTask/queryTaskGroup";

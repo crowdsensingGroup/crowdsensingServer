@@ -46,10 +46,10 @@
                 <c:forEach var="taskGroup" items="${requestScope.get('list')}" varStatus="status">
                     <tr>
                         <td>${taskGroup.name}</td>
-                        <td><fmt:formatDate value="${taskGroup.acceptanceDeadline}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                        <td><fmt:formatDate value="${taskGroup.startDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                        <td><fmt:formatDate value="${taskGroup.endDatetime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
-                        <td><fmt:formatDate value="${taskGroup.submissionDeadline}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+                        <td>${taskGroup.acceptanceDeadline}</td>
+                        <td>${taskGroup.startDatetime}</td>
+                        <td>${taskGroup.endDatetime}</td>
+                        <td>${taskGroup.submissionDeadline}</td>
                         <td>${taskGroup.taskType}</td>
                         <td>查询</td>
                         <td>${taskGroup.remark}</td>

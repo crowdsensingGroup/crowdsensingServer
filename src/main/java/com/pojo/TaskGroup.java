@@ -1,17 +1,15 @@
 package com.pojo;
 
-import java.util.Date;
-
 /**
  * Created by 胡煜家 on 2019/1/18.
  */
 public class TaskGroup {
     private int id;
     private String name;
-    private Date acceptanceDeadline;
-    private Date submissionDeadline;
-    private Date startDatetime;
-    private Date endDatetime;
+    private String acceptanceDeadline;
+    private String submissionDeadline;
+    private String startDatetime;
+    private String endDatetime;
     private String taskType;
     private String remark;
 
@@ -31,35 +29,35 @@ public class TaskGroup {
         this.name = name;
     }
 
-    public Date getAcceptanceDeadline() {
+    public String getAcceptanceDeadline() {
         return acceptanceDeadline;
     }
 
-    public void setAcceptanceDeadline(Date acceptanceDeadline) {
+    public void setAcceptanceDeadline(String acceptanceDeadline) {
         this.acceptanceDeadline = acceptanceDeadline;
     }
 
-    public Date getSubmissionDeadline() {
+    public String getSubmissionDeadline() {
         return submissionDeadline;
     }
 
-    public void setSubmissionDeadline(Date submissionDeadline) {
+    public void setSubmissionDeadline(String submissionDeadline) {
         this.submissionDeadline = submissionDeadline;
     }
 
-    public Date getStartDatetime() {
+    public String getStartDatetime() {
         return startDatetime;
     }
 
-    public void setStartDatetime(Date startDatetime) {
+    public void setStartDatetime(String startDatetime) {
         this.startDatetime = startDatetime;
     }
 
-    public Date getEndDatetime() {
+    public String getEndDatetime() {
         return endDatetime;
     }
 
-    public void setEndDatetime(Date endDatetime) {
+    public void setEndDatetime(String endDatetime) {
         this.endDatetime = endDatetime;
     }
 
