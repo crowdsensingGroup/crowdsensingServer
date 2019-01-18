@@ -59,11 +59,11 @@
         function zTreeOnClick(treeNode) {
             //此处编写需要完成的业务逻辑代码，实现你想要的 主内容的框架进行页面跳转
             if (treeNode.id == 11) {
-                window.location.href = "${path }/task/toReleaseTaskGroup";
+                window.location.href = "${path }/taskGroup/toRelease";
             } else if (treeNode.id == 12) {
                 window.location.href = "${path }/task/toReleaseTask";
             } else if (treeNode.id == 21) {
-                window.location.href = "${path }/task/toQueryTaskGroup";
+                window.location.href = "${path }/taskGroup/toAllTaskGroup";
             } else if (treeNode.id == 22) {
                 window.location.href = "${path }/task/toQueryTask";
             } else if (treeNode.id == 31) {
@@ -78,9 +78,9 @@
 <div style="float: left;display: inline;">
     <TABLE border=0 height=600px align=left>
         <TR>
-            <TD width=230px align=left valign=top
+            <TD width=185px align=left valign=top
                 style="BORDER-RIGHT: #999999 1px dashed">
-                <ul id="tree" class="tree" style="width:230px; overflow:auto;"></ul>
+                <ul id="tree" class="tree" style="width:185px; overflow:auto;"></ul>
             </TD>
         </TR>
     </TABLE>
