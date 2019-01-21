@@ -33,15 +33,15 @@
         };
         //描述的是树上的每一个节点
         zNodes = [
-            {id: 1, pid: 0, name: '发布任务', icon: '${pageContext.request.contextPath }/img/发布任务.gif',open:true},
+            {id: 1, pid: 0, name: '发布任务', icon: '${pageContext.request.contextPath }/img/发布任务.gif', open: true},
             {id: 11, pid: 1, name: '创建任务组', icon: '${pageContext.request.contextPath }/img/创建任务组.gif'},
             {id: 12, pid: 1, name: '创建任务', icon: '${pageContext.request.contextPath }/img/创建任务.gif'},
 
-            {id: 2, pid: 0, name: '任务监测', icon: '${pageContext.request.contextPath }/img/任务监测.gif',open:true},
+            {id: 2, pid: 0, name: '任务监测', icon: '${pageContext.request.contextPath }/img/任务监测.gif', open: true},
             {id: 21, pid: 2, name: '查询任务组', icon: '${pageContext.request.contextPath }/img/查询任务组.gif'},
             {id: 22, pid: 2, name: '查询任务', icon: '${pageContext.request.contextPath }/img/查询任务.gif'},
 
-            {id: 3, pid: 0, name: '系统监测', icon: '${pageContext.request.contextPath }/img/系统监测.gif',open:true},
+            {id: 3, pid: 0, name: '系统监测', icon: '${pageContext.request.contextPath }/img/系统监测.gif', open: true},
             {id: 31, pid: 3, name: '任务完成率', icon: '${pageContext.request.contextPath }/img/任务完成率.gif'},
             {id: 32, pid: 3, name: '用户接受率', icon: '${pageContext.request.contextPath }/img/用户接受率.gif'},
 
@@ -72,8 +72,8 @@
                 window.location.href = "${path }/taskCompletion/toTaskCompletionRate";
             } else if (treeNode.id == 32) {
                 window.location.href = "${path }/userAcceptance/toUserAcceptanceRate";
-            } else if (treeNode.id == 32) {
-                window.location.href = "${path }";
+            } else if (treeNode.id == 4) {
+                window.location.href = "${path }/toHome";
             }
         }
     </script>
