@@ -37,17 +37,6 @@ public class TaskController {
         return "monitorTask/queryTask";
     }
 
-
-    @RequestMapping("toTaskCompletionRate")
-    public String toTaskCompletionRate() {
-        return "monitorSystem/taskCompletionRate";
-    }
-
-    @RequestMapping("toUserAcceptanceRate")
-    public String toUserAcceptanceRate() {
-        return "monitorSystem/userAcceptanceRate";
-    }
-
     @RequestMapping(value = "/getTask")
     @ResponseBody
     public Map<String, Object> getTask(String latitude, String longitude) {

@@ -14,7 +14,7 @@
 <jsp:include page="../home/header.jsp" flush="true"/>
 <jsp:include page="../home/leftTree.jsp" flush="true"/>
 <div style="float: left;display: inline;padding-left: 10px;width: auto">
-
+    <img src="${chartURL}" width=600 height=400 border=0 color=gray>
 </div>
 </body>
 </html>
