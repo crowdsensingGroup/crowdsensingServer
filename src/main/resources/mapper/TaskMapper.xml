@@ -49,13 +49,10 @@
 
     <select id="queryTaskByTaskGroupName" parameterType="String" resultMap="taskResultMap">
         SELECT
-        id,taskGroupName,longitude,latitude,status,remark
+        task.id, task_group.name,longitude,latitude,status,task.remark
         FROM
-        (SELECT task.id,task.taskGroupId, name AS taskGroupName,
-        longitude,latitude,status,remark FROM task,
-        (SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id)
-        AS idToName WHERE task.id = idToName.id)
-        AS allTask WHERE allTask.taskGroupName LIKE "%"#{name}"%"
+        task inner join task_group on task.taskGroupId=task_group.id
+        WHERE task_group.name LIKE "%#{name}%";
     </select>
 
     <select id="queryTaskByStatus" parameterType="String" resultMap="taskResultMap">
