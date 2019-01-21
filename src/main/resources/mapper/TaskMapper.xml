@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TaskDao">
+    <resultMap type="Task" id="taskResultMap">
+        <id property="id" column="id"/>
+        <result property="taskGroupName" column="taskGroupName"/>
+        <result property="longitude" column="longitude"/>
+        <result property="latitude" column="latitude"/>
+        <result property="status" column="status"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <insert id="addTask" parameterType="Task">
+        INSERT INTO task(taskGroupId,longitude,latitude,status,remark)
+        VALUE (#{taskGroupId},#{longitude}, #{latitude}, #{status}, #{remark})
+    </insert>
+
+    <delete id="deleteTaskById" parameterType="int">
+        DELETE FROM task WHERE id=#{id}
+    </delete>
+
+    <update id="updateTask" parameterType="Task">
+        UPDATE task
+        SET taskGroupId = #{taskGroupId},longitude = #{longitude},latitude = #{latitude}
+        ,status = #{status},remark = #{remark}
+        WHERE  id = #{id}
+    </update>
+
+
+    <select id="queryAllTask" resultMap="taskResultMap">
+        SELECT task.id,name AS taskGroupName,longitude,latitude,status,remark
+        FROM task,
+        (SELECT task.id,name FROM task,task_group WHERE task.taskGroupId=task_group.id)AS idToName
+        WHERE task.id=idToName.id
+    </select>
+
+    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskResultMap">
+        SELECT
+        id,taskGroupName,longitude,latitude,status,remark
+        FROM
+        (SELECT task.id, task.taskGroupId, name as taskGroupName,longitude,latitude,status,remark
+        FROM
+        task,(SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id )AS idToName
+        WHERE task.id = idToName.id)AS allTask
+        WHERE allTask.taskGroupId=#{id}
+    </select>
+
+    <select id="queryTaskByTaskGroupName" parameterType="String" resultMap="taskResultMap">
+        SELECT
+        id,taskGroupName,longitude,latitude,status,remark
+        FROM
+        (SELECT task.id,task.taskGroupId, name AS taskGroupName,
+        longitude,latitude,status,remark FROM task,
+        (SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id)
+        AS idToName WHERE task.id = idToName.id)
+        AS allTask WHERE allTask.taskGroupName LIKE "%"#{name}"%"
+    </select>
+
+    <select id="queryTaskByStatus" parameterType="String" resultMap="taskResultMap">
+        SELECT
+        id,taskGroupName,longitude,latitude,status,remark
+        FROM
+        (SELECT task.id,task.taskGroupId, name AS taskGroupName,
+        longitude,latitude,status,remark FROM task,
+        (SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id)
+        AS idToName WHERE task.id = idToName.id)
+        AS allTask WHERE allTask.status = #{status}
+    </select>
+</mapper>
