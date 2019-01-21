@@ -24,6 +24,11 @@ public class TaskController {
         return "releaseTask/releaseTask";
     }
 
+    @RequestMapping("/releaseTask")
+    public String releaseTask(Task task){
+        taskService.addTask(task);
+        return "redirect:/task/toQueryTask";
+    }
 
     @RequestMapping("toQueryTask")
     public String toQueryTask(Model model) {

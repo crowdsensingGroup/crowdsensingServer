@@ -34,7 +34,7 @@
     <form action="" name="taskForm">
         <table style="border-collapse:separate; border-spacing:0px 10px;">
             <tr>
-                <td>名称：</td>
+                <td>任务名称：</td>
                 <td><input type="text" name="name"></td>
             </tr>
             <tr>
@@ -58,7 +58,7 @@
 
         <div class="row">
             <div class="col-md-4 column">
-                <input class="btn btn-primary" type="button" value="发布" onclick="toReleaseTask()">
+                <input class="btn btn-primary" type="button" value="发布" onclick="releaseTask()">
             </div>
         </div>
 
@@ -67,7 +67,7 @@
     <script type="text/javascript">
         function releaseTask() {
             var form = document.forms[0];
-            form.action = "${basePath }/task/toReleaseTask";
+            form.action = "${basePath }/task/releaseTask";
             form.method = "post";
             form.submit();
         }
