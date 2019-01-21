@@ -17,21 +17,9 @@ public class TaskController {
         return "releaseTask/releaseTask";
     }
 
-
-
     @RequestMapping("toQueryTask")
     public String toQueryTask() {
         return "monitorTask/queryTask";
-    }
-
-    @RequestMapping("toTaskCompletionRate")
-    public String toTaskCompletionRate() {
-        return "monitorSystem/taskCompletionRate";
-    }
-
-    @RequestMapping("toUserAcceptanceRate")
-    public String toUserAcceptanceRate() {
-        return "monitorSystem/userAcceptanceRate";
     }
 
     @RequestMapping(value = "/getTask")

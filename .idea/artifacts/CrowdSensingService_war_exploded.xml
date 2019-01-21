@@ -32,6 +32,8 @@
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.1.1" />
           <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.1.1" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.6" />
+          <element id="library" level="project" name="Maven: org.jfree:jfreechart:1.0.19" />
+          <element id="library" level="project" name="Maven: org.jfree:jcommon:1.0.23" />
         </element>
       </element>
       <element id="directory" name="META-INF">

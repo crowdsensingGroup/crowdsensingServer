@@ -35,29 +35,33 @@
         <table style="border-collapse:separate; border-spacing:0px 10px;">
             <tr>
                 <td>名称：</td>
-                <td><input type="text" name="name"></td>
+                <td><input type="text" name="name" id="name"></td>
             </tr>
             <tr>
-                <td>接受截至时间：</td>
-                <td><input type="text" name="acceptanceDeadline" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                <td>接受截止时间：</td>
+                <td><input type="text" name="acceptanceDeadline" id="acceptanceDeadline"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
                 </td>
             </tr>
             <tr>
-                <td>开始时间：</td>
+                <td>提交截止时间：</td>
                 <td>
-                    <input type="text" name="submissionDeadline" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                    <input type="text" name="submissionDeadline" id="submissionDeadline"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
                 </td>
             </tr>
             <tr>
-                <td>截至时间：</td>
+                <td>任务开始时间：</td>
                 <td>
-                    <input type="text" name="startDatetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                    <input type="text" name="startDatetime" id="startDatetime"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
                 </td>
             </tr>
             <tr>
-                <td>提交截至时间：</td>
+                <td>任务截止时间：</td>
                 <td>
-                    <input type="text" name="endDatetime" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
+                    <input type="text" name="endDatetime" id="endDatetime"
+                           onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm'})"/>
                 </td>
             </tr>
             <tr>
@@ -72,7 +76,7 @@
             </tr>
             <tr>
                 <td>备注：</td>
-                <td><input type="text" name="remark"></td>
+                <td><input type="text" name="remark" id="remark"></td>
             </tr>
         </table>
         <br>
@@ -87,6 +91,27 @@
 
     <script type="text/javascript">
         function releaseTask() {
+            if ($.trim($('#name').val()).length < 1) {
+                alert("任务组名不能为空！");
+                return;
+            }
+            if ($.trim($('#acceptanceDeadline').val()).length < 1) {
+                alert("接受截止时间不能为空！");
+                return;
+            }
+            if ($.trim($('#submissionDeadline').val()).length < 1) {
+                alert("提交截止时间不能为空！");
+                return;
+            }
+            if ($.trim($('#startDatetime').val()).length < 1) {
+                alert("任务开始时间不能为空！");
+                return;
+            }
+            if ($.trim($('#endDatetime').val()).length < 1) {
+                alert("任务截止时间不能为空！");
+                return;
+            }
+
             var form = document.forms[0];
             form.action = "${basePath }/taskGroup/releaseTask";
             form.method = "post";

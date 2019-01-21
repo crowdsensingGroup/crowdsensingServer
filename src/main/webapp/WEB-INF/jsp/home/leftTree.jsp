@@ -44,6 +44,8 @@
             {id: 3, pid: 0, name: '系统监测', icon: '${pageContext.request.contextPath }/img/系统监测.gif',open:true},
             {id: 31, pid: 3, name: '任务完成率', icon: '${pageContext.request.contextPath }/img/任务完成率.gif'},
             {id: 32, pid: 3, name: '用户接受率', icon: '${pageContext.request.contextPath }/img/用户接受率.gif'},
+
+            {id: 4, pid: 0, name: '返回主页', icon: '${pageContext.request.contextPath }/img/发布任务.gif'},
         ];
         $(document).ready(function () {
             /**
@@ -67,9 +69,11 @@
             } else if (treeNode.id == 22) {
                 window.location.href = "${path }/task/toQueryTask";
             } else if (treeNode.id == 31) {
-                window.location.href = "${path }/task/toTaskCompletionRate";
+                window.location.href = "${path }/taskCompletion/toTaskCompletionRate";
             } else if (treeNode.id == 32) {
-                window.location.href = "${path }/task/toUserAcceptanceRate";
+                window.location.href = "${path }/userAcceptance/toUserAcceptanceRate";
+            } else if (treeNode.id == 32) {
+                window.location.href = "${path }";
             }
         }
     </script>
