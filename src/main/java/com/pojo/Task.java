@@ -6,11 +6,20 @@ package com.pojo;
  */
 public class Task {
     private int id;
+    private int taskGroupId;
     private String taskGroupName;
     private float longitude;
     private float latitude;
     private String status;
     private String remark;
+
+    public int getTaskGroupId() {
+        return taskGroupId;
+    }
+
+    public void setTaskGroupId(int taskGroupId) {
+        this.taskGroupId = taskGroupId;
+    }
 
     public int getId() {
         return id;

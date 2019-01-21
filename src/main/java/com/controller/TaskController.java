@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.pojo.Task;
+import com.pojo.TaskGroup;
+import com.service.TaskGroupService;
 import com.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,15 +19,25 @@ import java.util.Map;
 public class TaskController {
 
     @Autowired
+    private TaskGroupService taskGroupService;
+
+    @Autowired
     private TaskService taskService;
 
     @RequestMapping("toReleaseTask")
-    public String toReleaseTask() {
+    public String toReleaseTask(Model model) {
+        List<TaskGroup> list = taskGroupService.queryAllTaskGroup();
+        model.addAttribute("list", list);
         return "releaseTask/releaseTask";
     }
 
-    @RequestMapping("toQueryTask")
-    public String toQueryTask(Model model) {
+    @RequestMapping("/releaseTask")
+    public String releaseTask(Task task) {
+        taskService.addTask(task);
+        return "redirect:/task/toAllTask";
+    }
+    @RequestMapping("toAllTask")
+    public String toAllTask(Model model) {
         List<Task> list = taskService.queryAllTask();
         model.addAttribute("list", list);
         return "monitorTask/queryTask";

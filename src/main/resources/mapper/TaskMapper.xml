@@ -5,6 +5,7 @@
 <mapper namespace="com.dao.TaskDao">
     <resultMap type="Task" id="taskResultMap">
         <id property="id" column="id"/>
+        <result property="taskGroupId" column="taskGroupId"/>
         <result property="taskGroupName" column="taskGroupName"/>
         <result property="longitude" column="longitude"/>
         <result property="latitude" column="latitude"/>
