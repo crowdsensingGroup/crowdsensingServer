@@ -29,7 +29,6 @@
         WHERE  id = #{id}
     </update>
 
-
     <select id="queryAllTask" resultMap="taskResultMap">
         SELECT task.id,name AS taskGroupName,longitude,latitude,status,remark
         FROM task,
