@@ -18,9 +18,5 @@ public interface TaskService {
 
     List<Task> queryAllTask();
 
-    List<Task> queryTaskByTaskGroupId(int id);
-
-    List<Task> queryTaskByTaskGroupName(String  name);
-
-    List<Task> queryTaskByStatus(String status);
+    List<Task> queryTaskByCondition(String taskGroupName, String status);
 }

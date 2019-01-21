@@ -36,36 +36,15 @@
         WHERE task.id=idToName.id
     </select>
 
-    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskResultMap">
-        SELECT
-        id,taskGroupName,longitude,latitude,status,remark
-        FROM
-        (SELECT task.id, task.taskGroupId, name as taskGroupName,longitude,latitude,status,remark
-        FROM
-        task,(SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id )AS idToName
-        WHERE task.id = idToName.id)AS allTask
-        WHERE allTask.taskGroupId=#{id}
-    </select>
-
-    <select id="queryTaskByTaskGroupName" parameterType="String" resultMap="taskResultMap">
-        SELECT
-        id,taskGroupName,longitude,latitude,status,remark
-        FROM
-        (SELECT task.id,task.taskGroupId, name AS taskGroupName,
-        longitude,latitude,status,remark FROM task,
-        (SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id)
-        AS idToName WHERE task.id = idToName.id)
-        AS allTask WHERE allTask.taskGroupName LIKE "%"#{name}"%"
-    </select>
-
-    <select id="queryTaskByStatus" parameterType="String" resultMap="taskResultMap">
-        SELECT
-        id,taskGroupName,longitude,latitude,status,remark
-        FROM
-        (SELECT task.id,task.taskGroupId, name AS taskGroupName,
-        longitude,latitude,status,remark FROM task,
-        (SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id)
-        AS idToName WHERE task.id = idToName.id)
-        AS allTask WHERE allTask.status = #{status}
+    <select id="queryTaskByCondition" resultMap="taskResultMap">
+        select task.id,task_group.name as taskGroupName,longitude,latitude,status,task.remark
+        from task inner join task_group on task.taskGroupId = task_group.id
+        where 1=1
+        <if test="taskGroupName != null and taskGroupName != '' ">
+            AND task_group.name like "%"#{taskGroupName}"%"
+        </if>
+        <if test="status != null and status != '' ">
+            AND status=#{status}
+        </if>
     </select>
 </mapper>

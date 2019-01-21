@@ -33,17 +33,7 @@ public class TaskServiceImp implements TaskService {
     }
 
     @Override
-    public List<Task> queryTaskByTaskGroupId(int id) {
-        return taskDao.queryTaskByTaskGroupId(id);
-    }
-
-    @Override
-    public List<Task> queryTaskByTaskGroupName(String name) {
-        return taskDao.queryTaskByTaskGroupName(name);
-    }
-
-    @Override
-    public List<Task> queryTaskByStatus(String status) {
-        return taskDao.queryTaskByStatus(status);
+    public List<Task> queryTaskByCondition(String taskGroupName, String status) {
+        return taskDao.queryTaskByCondition(taskGroupName, status);
     }
 }

@@ -24,11 +24,17 @@ public class TaskController {
         return "releaseTask/releaseTask";
     }
 
-
     @RequestMapping("toQueryTask")
     public String toQueryTask(Model model) {
-        List<Task> list =taskService.queryAllTask();
-        model.addAttribute("list",list);
+        List<Task> list = taskService.queryAllTask();
+        model.addAttribute("list", list);
+        return "monitorTask/queryTask";
+    }
+
+    @RequestMapping("queryByCondition")
+    public String queryByCondition(String taskGroupName, String status, Model model) {
+        List<Task> list = taskService.queryTaskByCondition(taskGroupName, status);
+        model.addAttribute("list", list);
         return "monitorTask/queryTask";
     }
 

@@ -28,22 +28,40 @@
 <jsp:include page="../home/leftTree.jsp" flush="true"/>
 <div style="float:left;display: inline;padding-left: 10px;width: auto">
     <div class="row clearfix">
+        <form action="" name="queryForm">
+            <table style="margin-left:20px;border-collapse:separate; border-spacing:0px 10px;">
+                <tr>
+                    <td>任务组名称：</td>
+                    <td style="width: 200px"><input type="text" name="taskGroupName" style="width: 150px"></td>
+                    <td>状态：</td>
+                    <td style="width: 130px">
+                        <select name="status" style="width: 80px;">
+                            <option selected="selected" disabled="disabled" style='display: none' value=''></option>
+                            <option value="已接受">已接受</option>
+                            <option value="未接受">未接受</option>
+                            <option value="已完成">已完成</option>
+                        </select>
+                    </td>
+                    <td><input class="btn btn-primary" type="button" value="查询" onclick="queryTask()"></td>
+                </tr>
+            </table>
+        </form>
+        <script type="text/javascript">
+            function queryTask() {
+                var form = document.forms[0];
+                form.action = "${basePath }/task/queryByCondition";
+                form.method = "post";
+                form.submit();
+            }
+        </script>
         <div class="col-md-12 column">
             <table class="table table-hover table-striped">
                 <thead>
-                <h3>任务名称查询</h3>
-                <input type="text" style="width: 300px"><br>
                 <tr>
                     <th>任务组名称</th>
                     <th>经度</th>
                     <th>纬度</th>
-                    <th>状态
-                        <select name="statusType" style="width: 70px;font-size: 12px">
-                            <option value="未接受">未接受</option>
-                            <option value="已接受">已接受</option>
-                            <option value="已完成 ">已完成</option>
-                        </select>
-                    </th>
+                    <th>状态</th>
                     <th>备注</th>
                 </tr>
                 </thead>
