@@ -69,9 +69,9 @@
             } else if (treeNode.id == 22) {
                 window.location.href = "${path }/task/toAllTask";
             } else if (treeNode.id == 31) {
-                window.location.href = "${path }/taskCompletion/toTaskCompletionRate";
+                window.location.href = "${path }/chartData/toTaskCompletionRate";
             } else if (treeNode.id == 32) {
-                window.location.href = "${path }/userAcceptance/toUserAcceptanceRate";
+                window.location.href = "${path }/chartData/toUserAcceptanceRate";
             } else if (treeNode.id == 32) {
                 window.location.href = "${path }";
             }
