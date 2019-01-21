@@ -28,7 +28,6 @@
         WHERE  id = #{id}
     </update>
 
-
     <select id="queryAllTask" resultMap="taskResultMap">
         SELECT task.id,task_group.name AS taskGroupName, longitude, latitude, status,task.remark
         FROM task INNER JOIN task_group ON task.taskGroupId=task_group.id
