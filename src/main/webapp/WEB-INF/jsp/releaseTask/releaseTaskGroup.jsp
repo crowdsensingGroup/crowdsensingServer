@@ -34,7 +34,7 @@
     <form action="" name="taskGroupForm">
         <table style="border-collapse:separate; border-spacing:0px 10px;">
             <tr>
-                <td>名称：</td>
+                <td>任务组名称：</td>
                 <td><input type="text" name="name" id="name"></td>
             </tr>
             <tr>
@@ -93,6 +93,10 @@
         function releaseTask() {
             if ($.trim($('#name').val()).length < 1) {
                 alert("任务组名不能为空！");
+                return;
+            }
+            if ($.trim($('#name').val()).length > 10) {
+                alert("任务组名不能超过10个子！");
                 return;
             }
             if ($.trim($('#acceptanceDeadline').val()).length < 1) {

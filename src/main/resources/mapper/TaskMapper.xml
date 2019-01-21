@@ -13,8 +13,8 @@
     </resultMap>
 
     <insert id="addTask" parameterType="Task">
-        INSERT INTO task(taskGroupId,longitude,latitude,status,remark)
-        VALUE (#{taskGroupId},#{longitude}, #{latitude}, #{status}, #{remark})
+        INSERT INTO task(taskGroupId,longitude,latitude,remark)
+        VALUE (#{taskGroupId},#{longitude}, #{latitude}, #{remark})
     </insert>
 
     <delete id="deleteTaskById" parameterType="int">

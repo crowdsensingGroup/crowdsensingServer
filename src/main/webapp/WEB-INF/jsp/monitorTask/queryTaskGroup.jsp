@@ -51,7 +51,7 @@
                         <td>${taskGroup.endDatetime}</td>
                         <td>${taskGroup.submissionDeadline}</td>
                         <td>${taskGroup.taskType}</td>
-                        <td>查询</td>
+                        <td><a href="<%=request.getContextPath()%>/task/queryByCondition?taskGroupName=${taskGroup.name}">查询</a></td>
                         <td>${taskGroup.remark}</td>
                     </tr>
                 </c:forEach>

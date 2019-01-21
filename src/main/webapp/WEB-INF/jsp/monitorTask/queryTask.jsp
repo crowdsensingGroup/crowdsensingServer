@@ -63,6 +63,7 @@
                     <th>纬度</th>
                     <th>状态</th>
                     <th>备注</th>
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -73,6 +74,14 @@
                         <td>${task.latitude}</td>
                         <td>${task.status}</td>
                         <td>${task.remark}</td>
+                        <td>
+                            <c:if test="${task.status == '已接受'}">
+                                <a href="<%=request.getContextPath()%>/task/userAcceptance?taskId=${task.id}">查询</a>
+                            </c:if>
+                            <c:if test="${task.status == '已完成'}">
+                                <a href="<%=request.getContextPath()%>/task/taskCompetion?taskId=${task.id}">查询</a>
+                            </c:if>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -36,7 +36,7 @@
             <tr>
                 <td>所属任务组：</td>
                 <td>
-                    <select name="taskGroup" style="width: 200px;">
+                    <select name="taskGroupId" style="width: 200px;">
                         <c:forEach var="taskGroup" items="${requestScope.get('list')}" varStatus="status">
                             <option value="${taskGroup.id}">${taskGroup.name}</option>
                         </c:forEach>
@@ -45,19 +45,19 @@
             </tr>
             <tr>
                 <td>经度：</td>
-                <td><input type="text" name="longitude"/>
+                <td><input type="text" name="longitude" id="longitude"/>
                 </td>
             </tr>
             <tr>
                 <td>纬度：</td>
                 <td>
-                    <input type="text" name="latitude"/>
+                    <input type="text" name="latitude" id="latitude"/>
                 </td>
             </tr>
 
             <tr>
                 <td>备注：</td>
-                <td><input type="text" name="remark"></td>
+                <td><input type="text" name="remark" id="remark"></td>
             </tr>
         </table>
         <br>
@@ -72,6 +72,15 @@
 
     <script type="text/javascript">
         function releaseTask() {
+            if ($.trim($('#longitude').val()).length < 1) {
+                alert("经度不能为空！");
+                return;
+            }
+            if ($.trim($('#latitude').val()).length < 1) {
+                alert("纬度不能为空！");
+                return;
+            }
+
             var form = document.forms[0];
             form.action = "${basePath }/task/releaseTask";
             form.method = "post";
