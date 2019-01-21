@@ -1,5 +1,10 @@
 package com.controller;
 
+import com.pojo.ChartData;
+
+import com.pojo.TaskGroup;
+import com.service.ChartDataService;
+
 import org.jfree.chart.ChartColor;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -12,6 +17,7 @@ import org.jfree.chart.servlet.ServletUtilities;
 import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,21 +26,25 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
+import java.util.List;
 
 /**
  * Created by 胡煜家 on 2019/1/21.
  */
 @Controller
-@RequestMapping("/userAcceptance")
-public class UserAcceptanceRateController {
+@RequestMapping("/taskCompletion")
+public class TaskCompletionRateController {
+
+    @Autowired
+    private ChartDataService chartDataService;
 
     //显示柱状图
-    @RequestMapping(value = "/toUserAcceptanceRate")
-    public ModelAndView toUserAcceptanceRate(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
+    @RequestMapping(value = "/toTaskCompletionRate")
+    public ModelAndView toTaskCompletionRate(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
         //1. 获得数据集合
         CategoryDataset dataset = getDataSet();
         //2. 创建柱状图
-        JFreeChart chart = ChartFactory.createBarChart3D("用户接受率", // 图表标题
+        JFreeChart chart = ChartFactory.createBarChart3D("任务完成率", // 图表标题
                 "任务组名", // 目录轴的显示标签
                 "百分比", // 数值轴的显示标签
                 dataset, // 数据集
@@ -62,7 +72,7 @@ public class UserAcceptanceRateController {
         String fileName = ServletUtilities.saveChartAsJPEG(chart, 700, 400, null, request.getSession());
         String chartURL = request.getContextPath() + "/chart?filename=" + fileName;
         modelMap.put("chartURL", chartURL);
-        return new ModelAndView("monitorSystem/userAcceptanceRate", modelMap);
+        return new ModelAndView("monitorSystem/taskCompletionRate", modelMap);
     }
 
     //设置文字样式
@@ -84,13 +94,14 @@ public class UserAcceptanceRateController {
     }
 
     // 获取一个演示用的组合数据集对象
-    private static CategoryDataset getDataSet() {
+    private  CategoryDataset getDataSet() {
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(40, "", "普通动物学");
-        dataset.addValue(50, "", "生物学");
-        dataset.addValue(60, "", "动物解剖学");
-        dataset.addValue(70, "", "生物理论课");
-        dataset.addValue(80, "", "动物理论课");
+        List<ChartData> lists = chartDataService.queryAllCompletionRation();
+
+
+        for (ChartData taskCompletionRate:lists) {
+            dataset.addValue(taskCompletionRate.getProportion(), "", taskCompletionRate.getTaskGroupName());
+        }
         return dataset;
     }
 }

@@ -34,8 +34,14 @@
     <form action="" name="taskForm">
         <table style="border-collapse:separate; border-spacing:0px 10px;">
             <tr>
-                <td>任务名称：</td>
-                <td><input type="text" name="name"></td>
+                <td>所属任务组：</td>
+                <td>
+                    <select name="taskGroup" style="width: 200px;">
+                        <c:forEach var="taskGroup" items="${requestScope.get('list')}" varStatus="status">
+                            <option value="${taskGroup.id}">${taskGroup.name}</option>
+                        </c:forEach>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>经度：</td>

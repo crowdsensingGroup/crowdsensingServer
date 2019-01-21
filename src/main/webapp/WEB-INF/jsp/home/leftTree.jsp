@@ -67,7 +67,7 @@
             } else if (treeNode.id == 21) {
                 window.location.href = "${path }/taskGroup/toAllTaskGroup";
             } else if (treeNode.id == 22) {
-                window.location.href = "${path }/task/toQueryTask";
+                window.location.href = "${path }/task/toAllTask";
             } else if (treeNode.id == 31) {
                 window.location.href = "${path }/taskCompletion/toTaskCompletionRate";
             } else if (treeNode.id == 32) {

@@ -1,6 +1,8 @@
 package com.controller;
 
 import com.pojo.Task;
+import com.pojo.TaskGroup;
+import com.service.TaskGroupService;
 import com.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,23 +19,34 @@ import java.util.Map;
 public class TaskController {
 
     @Autowired
+    private TaskGroupService taskGroupService;
+
+    @Autowired
     private TaskService taskService;
 
     @RequestMapping("toReleaseTask")
-    public String toReleaseTask() {
+    public String toReleaseTask(Model model) {
+        List<TaskGroup> list = taskGroupService.queryAllTaskGroup();
+        model.addAttribute("list", list);
         return "releaseTask/releaseTask";
     }
 
     @RequestMapping("/releaseTask")
-    public String releaseTask(Task task){
+    public String releaseTask(Task task) {
         taskService.addTask(task);
-        return "redirect:/task/toQueryTask";
+        return "redirect:/task/toAllTask";
+    }
+    @RequestMapping("toAllTask")
+    public String toAllTask(Model model) {
+        List<Task> list = taskService.queryAllTask();
+        model.addAttribute("list", list);
+        return "monitorTask/queryTask";
     }
 
-    @RequestMapping("toQueryTask")
-    public String toQueryTask(Model model) {
-        List<Task> list =taskService.queryAllTask();
-        model.addAttribute("list",list);
+    @RequestMapping("queryByCondition")
+    public String queryByCondition(String taskGroupName, String status, Model model) {
+        List<Task> list = taskService.queryTaskByCondition(taskGroupName, status);
+        model.addAttribute("list", list);
         return "monitorTask/queryTask";
     }
 

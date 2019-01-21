@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.pojo.Task;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -16,9 +17,5 @@ public interface TaskDao {
 
     List<Task> queryAllTask();
 
-    List<Task> queryTaskByTaskGroupId(int id);
-
-    List<Task> queryTaskByTaskGroupName(String name);
-
-    List<Task> queryTaskByStatus(String status);
+    List<Task> queryTaskByCondition(@Param("taskGroupName") String taskGroupName, @Param("status")String status);
 }
