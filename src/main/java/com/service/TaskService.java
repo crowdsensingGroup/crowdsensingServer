@@ -1,13 +1,15 @@
-package com.dao;
+package com.service;
+
 
 import com.pojo.Task;
 
 import java.util.List;
 
 /**
- * Created by 胡煜家 on 2018/6/28.
+ * Created by howie on 2019/1/18.
  */
-public interface TaskDao {
+public interface TaskService {
+
     int addTask(Task task);
 
     int deleteTaskById(int id);
@@ -18,7 +20,7 @@ public interface TaskDao {
 
     List<Task> queryTaskByTaskGroupId(int id);
 
-    List<Task> queryTaskByTaskGroupName(String name);
+    List<Task> queryTaskByTaskGroupName(String  name);
 
     List<Task> queryTaskByStatus(String status);
 }
