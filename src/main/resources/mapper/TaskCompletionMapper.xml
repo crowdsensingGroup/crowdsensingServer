@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.TaskCompletionDao">
+    <resultMap type="TaskCompletion" id="taskCompletionResultMap">
+        <id property="id" column="id"/>
+        <result property="taskId" column="taskId"/>
+        <result property="completionDatetime" column="completionDatetime"/>
+        <result property="submissionDatetime" column="submissionDatetime"/>
+        <result property="taskData" column="taskData"/>
+        <result property="taskPic" column="taskPic"/>
+    </resultMap>
+
+    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskResultMap">
+        SELECT
+        id,taskGroupName,longitude,latitude,status,remark
+        FROM
+        (SELECT task.id, task.taskGroupId, name as taskGroupName,longitude,latitude,status,remark
+        FROM
+        task,(SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id )AS idToName
+        WHERE task.id = idToName.id)AS allTask
+        WHERE allTask.taskGroupId=#{id}
+    </select>
+</mapper>

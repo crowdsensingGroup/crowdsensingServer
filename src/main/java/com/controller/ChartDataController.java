@@ -1,21 +1,8 @@
 package com.controller;
 
 import com.pojo.ChartData;
-
-import com.pojo.TaskGroup;
 import com.service.ChartDataService;
-
 import com.utils.ChartUtils;
-import org.jfree.chart.ChartColor;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.servlet.ServletUtilities;
-import org.jfree.chart.title.TextTitle;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
 import java.util.List;
 
 /**
@@ -40,14 +26,14 @@ public class ChartDataController {
     private ChartDataService chartDataService;
 
     //显示柱状图
-    @RequestMapping(value = "/toTaskCompletionRate")
+    @RequestMapping(value = "/taskCompletionRate")
     public ModelAndView toTaskCompletionRate(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
         modelMap.put("chartURL", ChartUtils.getChartURL(getTaskCompletionRateDataSet(),request));
         return new ModelAndView("monitorSystem/taskCompletionRate", modelMap);
 
     }
 
-    @RequestMapping(value = "/toUserAcceptanceRate")
+    @RequestMapping(value = "/userAcceptanceRate")
     public ModelAndView touserAcceptanceRate(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
 
         modelMap.put("chartURL",ChartUtils.getChartURL(getuserAcceptanceRateDataSet(),request));
