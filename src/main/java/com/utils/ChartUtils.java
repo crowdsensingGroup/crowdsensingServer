@@ -20,8 +20,8 @@ import java.awt.*;
  */
 public class ChartUtils {
 
-      public static  String getChartURL(CategoryDataset dataset, HttpServletRequest request)throws Exception{
-          JFreeChart chart = ChartFactory.createBarChart3D("任务完成率", // 图表标题
+      public static  String getChartURL(CategoryDataset dataset, HttpServletRequest request,String title)throws Exception{
+          JFreeChart chart = ChartFactory.createBarChart3D(title, // 图表标题
                   "任务组名", // 目录轴的显示标签
                   "百分比", // 数值轴的显示标签
                   dataset, // 数据集
@@ -46,7 +46,7 @@ public class ChartUtils {
           getChartByFont(chart);
 
           //6. 将图形转换为图片，传到前台
-          String fileName = ServletUtilities.saveChartAsJPEG(chart, 700, 400, null, request.getSession());
+          String fileName = ServletUtilities.saveChartAsJPEG(chart, 900, 400, null, request.getSession());
           String chartURL = request.getContextPath() + "/chart?filename=" + fileName;
           return chartURL;
       }

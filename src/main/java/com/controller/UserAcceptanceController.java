@@ -1,19 +1,36 @@
 package com.controller;
 
+import com.dao.UserAcceptanceDao;
+import com.pojo.Task;
+import com.pojo.UserAcceptance;
+import com.service.TaskService;
+import com.service.UserAcceptanceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * Created by 胡煜家 on 2019/1/21.
  */
 @Controller
-@RequestMapping("/userAcceptance")
 public class UserAcceptanceController {
 
+    @Autowired
+    private UserAcceptanceService userAcceptanceService;
 
-    @RequestMapping("queryByCondition")
-    public String queryByCondition(String taskGroupName, String status, Model model) {
+    @Autowired
+    private TaskService taskService;
+
+
+    @RequestMapping("/userAcceptance")
+    public String queryByTaskId(int taskId ,Model model) {
+
+        List<UserAcceptance> listUser = userAcceptanceService.queryUserAcceptanceByTaskId(taskId);
+
+        model.addAttribute("listUser",listUser);
         return "monitorTask/userAcceptance";
     }
 }

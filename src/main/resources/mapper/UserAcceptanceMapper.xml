@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserAcceptanceDao">
+    <resultMap type="UserAcceptance" id="UserAcceptanceResultMap">
+        <id property="id" column="id"/>
+        <result property="acceptDatetime" column="acceptDatetime"/>
+        <result property="acceptLongitude" column="acceptLongitude"/>
+        <result property="acceptLatitude" column="acceptLatitude"/>
+        <result property="travelDistance" column="travelDistance"/>
+    </resultMap>
+
+    <select id="queryUserAcceptance" parameterType="int" resultMap="UserAcceptanceResultMap">
+        SELECT
+        id,acceptDatetime, acceptLongitude, acceptLatitude, travelDistance
+        FROM
+        user_acceptance
+        WHERE taskId=#{task.id}
+    </select>
+</mapper>

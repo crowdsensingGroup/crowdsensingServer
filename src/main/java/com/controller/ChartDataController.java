@@ -42,7 +42,7 @@ public class ChartDataController {
     //显示柱状图
     @RequestMapping(value = "/toTaskCompletionRate")
     public ModelAndView toTaskCompletionRate(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
-        modelMap.put("chartURL", ChartUtils.getChartURL(getTaskCompletionRateDataSet(),request));
+        modelMap.put("chartURL", ChartUtils.getChartURL(getTaskCompletionRateDataSet(),request,"任务完成率"));
         return new ModelAndView("monitorSystem/taskCompletionRate", modelMap);
 
     }
@@ -50,7 +50,7 @@ public class ChartDataController {
     @RequestMapping(value = "/toUserAcceptanceRate")
     public ModelAndView touserAcceptanceRate(HttpServletRequest request, HttpServletResponse response, ModelMap modelMap) throws Exception {
 
-        modelMap.put("chartURL",ChartUtils.getChartURL(getuserAcceptanceRateDataSet(),request));
+        modelMap.put("chartURL",ChartUtils.getChartURL(getuserAcceptanceRateDataSet(),request,"用户接受率"));
         return new ModelAndView("monitorSystem/userAcceptanceRate", modelMap);
 
     }

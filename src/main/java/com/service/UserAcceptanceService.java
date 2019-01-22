@@ -1,12 +1,9 @@
-package com.dao;
+package com.service;
 
 import com.pojo.UserAcceptance;
 
 import java.util.List;
 
-/**
- * Created by 胡煜家 on 2019/1/21.
- */
-public interface UserAcceptanceDao {
+public interface UserAcceptanceService {
     List<UserAcceptance> queryUserAcceptanceByTaskId(int taskId);
 }

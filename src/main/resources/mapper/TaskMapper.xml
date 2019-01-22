@@ -34,17 +34,6 @@
         FROM task INNER JOIN task_group ON task.taskGroupId=task_group.id
     </select>
 
-    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskResultMap">
-        SELECT
-        id,taskGroupName,longitude,latitude,status,remark
-        FROM
-        (SELECT task.id, task.taskGroupId, name as taskGroupName,longitude,latitude,status,remark
-        FROM
-        task,(SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id )AS idToName
-        WHERE task.id = idToName.id)AS allTask
-        WHERE allTask.taskGroupId=#{id}
-    </select>
-
     <select id="queryTaskByCondition" resultMap="taskResultMap">
         select task.id,task_group.name as taskGroupName,longitude,latitude,status,task.remark
         from task inner join task_group on task.taskGroupId = task_group.id
