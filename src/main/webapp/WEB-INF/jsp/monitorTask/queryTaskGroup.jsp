@@ -43,7 +43,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="taskGroup" items="${requestScope.get('list')}" varStatus="status">
+                <c:forEach var="taskGroup" items="${requestScope.get('list')}">
                     <tr>
                         <td>${taskGroup.name}</td>
                         <td>${taskGroup.acceptanceDeadline}</td>
@@ -51,7 +51,9 @@
                         <td>${taskGroup.endDatetime}</td>
                         <td>${taskGroup.submissionDeadline}</td>
                         <td>${taskGroup.taskType}</td>
-                        <td><a href="<%=request.getContextPath()%>/task/queryByCondition?taskGroupName=${taskGroup.name}">查询</a></td>
+                        <td>
+                            <a href="<%=request.getContextPath()%>/task/queryByCondition?taskGroupName=${taskGroup.name}">查询</a>
+                        </td>
                         <td>${taskGroup.remark}</td>
                     </tr>
                 </c:forEach>
