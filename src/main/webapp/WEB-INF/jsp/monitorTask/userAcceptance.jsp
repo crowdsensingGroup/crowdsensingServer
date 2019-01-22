@@ -19,7 +19,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    任务查询
+                    已接受的任务
                 </h1>
             </div>
         </div>

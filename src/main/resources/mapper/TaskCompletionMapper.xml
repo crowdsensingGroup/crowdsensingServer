@@ -12,14 +12,7 @@
         <result property="taskPic" column="taskPic"/>
     </resultMap>
 
-    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskResultMap">
-        SELECT
-        id,taskGroupName,longitude,latitude,status,remark
-        FROM
-        (SELECT task.id, task.taskGroupId, name as taskGroupName,longitude,latitude,status,remark
-        FROM
-        task,(SELECT task.id, name FROM task , task_group WHERE task.taskGroupId = task_group.id )AS idToName
-        WHERE task.id = idToName.id)AS allTask
-        WHERE allTask.taskGroupId=#{id}
+    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskCompletionResultMap">
+
     </select>
 </mapper>
