@@ -31,7 +31,7 @@
 <div style="float:left;display: inline;padding-left: 10px;width: auto">
     <c:forEach var="taskCompletion" items="${requestScope.get('list')}">
         <div style="float:left;padding-left: 20px;">
-            <img src="showPic/${taskCompletion.taskPic}" style="width:200px; height: 200px;"/>
+            <img src="showPic/${taskCompletion.taskPic}" style="width:250px; height: 200px;"/>
             <br/><br/>
             <li>
                 测量数据：${taskCompletion.taskData}
@@ -40,10 +40,10 @@
                 完成用户：匿名用户
             </li>
             <li>
-                任务完成时间：${taskCompletion.completionDatetime}
+                完成时间：${taskCompletion.completionDatetime}
             </li>
             <li>
-                任务提交时间：${taskCompletion.submissionDatetime}
+                提交时间：${taskCompletion.submissionDatetime}
             </li>
         </div>
     </c:forEach>
