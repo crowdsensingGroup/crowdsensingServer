@@ -76,10 +76,10 @@
                         <td>${task.remark}</td>
                         <td>
                             <c:if test="${task.status == '已接受'}">
-                                <a href="<%=request.getContextPath()%>/task/userAcceptance?taskId=${task.id}">查询</a>
+                                <a href="<%=request.getContextPath()%>/userAcceptance/queryByCondition?taskId=${task.id}">查询</a>
                             </c:if>
                             <c:if test="${task.status == '已完成'}">
-                                <a href="<%=request.getContextPath()%>/task/taskCompetion?taskId=${task.id}">查询</a>
+                                <a href="<%=request.getContextPath()%>/taskCompetion/queryByCondition?taskId=${task.id}">查询</a>
                             </c:if>
                         </td>
                     </tr>
