@@ -36,7 +36,7 @@ public class TaskController {
         taskService.addTask(task);
         return "redirect:/task/toAllTask";
     }
-    @RequestMapping("toAllTask")
+    @RequestMapping("allTask")
     public String toAllTask(Model model) {
         List<Task> list = taskService.queryAllTask();
         model.addAttribute("list", list);

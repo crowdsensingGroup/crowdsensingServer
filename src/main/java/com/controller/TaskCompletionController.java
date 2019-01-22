@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by 胡煜家 on 2019/1/21.
  */
 @Controller
-public class SystemController {
-    @RequestMapping("home")
-    public String toReleaseTask(Model model) {
-        return "home/home";
+public class TaskCompletionController {
+
+    @RequestMapping("taskCompletion")
+    public String taskCompletion(int taskId, Model model) {
+        return "monitorTask/taskCompletion";
     }
 }

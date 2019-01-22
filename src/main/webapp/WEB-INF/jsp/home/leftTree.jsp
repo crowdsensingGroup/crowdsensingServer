@@ -65,15 +65,15 @@
             } else if (treeNode.id == 12) {
                 window.location.href = "${path }/task/toReleaseTask";
             } else if (treeNode.id == 21) {
-                window.location.href = "${path }/taskGroup/toAllTaskGroup";
+                window.location.href = "${path }/taskGroup/allTaskGroup";
             } else if (treeNode.id == 22) {
-                window.location.href = "${path }/task/toAllTask";
+                window.location.href = "${path }/task/allTask";
             } else if (treeNode.id == 31) {
-                window.location.href = "${path }/chartData/toTaskCompletionRate";
+                window.location.href = "${path }/chartData/taskCompletionRate";
             } else if (treeNode.id == 32) {
-                window.location.href = "${path }/chartData/toUserAcceptanceRate";
+                window.location.href = "${path }/chartData/userAcceptanceRate";
             } else if (treeNode.id == 4) {
-                window.location.href = "${path }/toHome";
+                window.location.href = "${path }/home";
             }
         }
     </script>

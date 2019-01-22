@@ -26,7 +26,7 @@ public class TaskGroupController {
         return "redirect:/taskGroup/toAllTaskGroup";
     }
 
-    @RequestMapping("toAllTaskGroup")
+    @RequestMapping("allTaskGroup")
     public String toAllTaskGroup(Model model) {
         List<TaskGroup> list = taskGroupService.queryAllTaskGroup();
         model.addAttribute("list", list);
