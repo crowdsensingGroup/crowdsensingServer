@@ -13,6 +13,6 @@
     </resultMap>
 
     <select id="queryTaskCompletionByTaskId" parameterType="int" resultMap="taskCompletionResultMap">
-
+        select id,taskId,completionDatetime,submissionDatetime,taskData,taskPic from task_completion where taskId=#{taskId}
     </select>
 </mapper>

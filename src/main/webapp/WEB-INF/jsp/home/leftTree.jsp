@@ -45,7 +45,7 @@
             {id: 31, pid: 3, name: '任务完成率', icon: '${pageContext.request.contextPath }/img/任务完成率.gif'},
             {id: 32, pid: 3, name: '用户接受率', icon: '${pageContext.request.contextPath }/img/用户接受率.gif'},
 
-            {id: 4, pid: 0, name: '返回主页', icon: '${pageContext.request.contextPath }/img/发布任务.gif'},
+            {id: 4, pid: 0, name: '返回主页', icon: '${pageContext.request.contextPath }/img/返回主页.gif'},
         ];
         $(document).ready(function () {
             /**
