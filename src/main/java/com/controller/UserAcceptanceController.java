@@ -1,5 +1,10 @@
 package com.controller;
 
+import com.pojo.Task;
+import com.pojo.UserAcceptance;
+import com.service.TaskService;
+import com.service.UserAcceptanceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +24,12 @@ public class UserAcceptanceController {
     private TaskService taskService;
 
 
-    @RequestMapping("/userAcceptance")
+    @RequestMapping("userAcceptance")
     public String queryByTaskId(int taskId ,Model model) {
-
-        List<UserAcceptance> listUser = userAcceptanceService.queryUserAcceptanceByTaskId(taskId);
-
-        model.addAttribute("listUser",listUser);
+        Task task = taskService.queryTaskById(taskId);
+        List<UserAcceptance> list = userAcceptanceService.queryUserAcceptanceByTaskId(taskId);
+        model.addAttribute("task",task);
+        model.addAttribute("list",list);
         return "monitorTask/userAcceptance";
     }
 }

@@ -5,6 +5,7 @@ package com.pojo;
  */
 public class UserAcceptance {
     private int id;
+    private int taskId;
     private float acceptLongitude;
     private float acceptLatitude;
     private String acceptDatetime;
@@ -16,6 +17,14 @@ public class UserAcceptance {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
     public float getAcceptLongitude() {

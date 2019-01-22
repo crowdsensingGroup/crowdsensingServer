@@ -5,11 +5,12 @@ import com.pojo.UserAcceptance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 @Service
 public class UserAcceptanceServiceImp implements UserAcceptanceService{
-    @Autowired
+    @Resource
     private UserAcceptanceDao userAcceptanceDao;
 
     @Override

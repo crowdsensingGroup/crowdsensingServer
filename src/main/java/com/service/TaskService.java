@@ -16,6 +16,8 @@ public interface TaskService {
 
     int updateTask(Task task);
 
+    Task queryTaskById(int id);
+
     List<Task> queryAllTask();
 
     List<Task> queryTaskByCondition(String taskGroupName, String status);

@@ -28,6 +28,11 @@ public class TaskServiceImp implements TaskService {
     }
 
     @Override
+    public Task queryTaskById(int id) {
+        return taskDao.queryTaskById(id);
+    }
+
+    @Override
     public List<Task> queryAllTask() {
         return taskDao.queryAllTask();
     }
