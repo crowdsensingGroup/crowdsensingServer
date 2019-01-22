@@ -12,7 +12,7 @@
         <result property="taskPic" column="taskPic"/>
     </resultMap>
 
-    <select id="queryTaskByTaskGroupId" parameterType="int" resultMap="taskCompletionResultMap">
+    <select id="queryTaskCompletionByTaskId" parameterType="int" resultMap="taskCompletionResultMap">
 
     </select>
 </mapper>
