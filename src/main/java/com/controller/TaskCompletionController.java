@@ -38,7 +38,7 @@ public class TaskCompletionController {
     @RequestMapping("/showPic/{fileName}.{suffix}")
     public void showPicture(@PathVariable("fileName") String fileName, @PathVariable("suffix") String suffix,
                             HttpServletResponse response) {
-        File imgFile = new File("/WEB-INF/files/" + fileName + "." + suffix);
+        File imgFile = new File("c:/files/" + fileName + "." + suffix);
         FileUtils.responseFile(response, imgFile);
     }
 
