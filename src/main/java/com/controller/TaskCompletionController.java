@@ -1,7 +1,9 @@
 package com.controller;
 
+import com.pojo.Task;
 import com.pojo.TaskCompletion;
 import com.service.TaskCompletionService;
+import com.service.TaskService;
 import com.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,11 +24,15 @@ public class TaskCompletionController {
     @Autowired
     private TaskCompletionService taskCompletionService;
 
+    @Autowired
+    private TaskService taskService;
 
     @RequestMapping("taskCompletion")
     public String taskCompletion(int taskId, Model model) {
         List<TaskCompletion> list = taskCompletionService.queryTaskCompletionByTaskId(taskId);
         model.addAttribute("list", list);
+        Task task = taskService.queryTaskById(taskId);
+        model.addAttribute("task", task);
         return "monitorTask/taskCompletion";
     }
 

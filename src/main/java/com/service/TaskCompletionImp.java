@@ -1,6 +1,5 @@
 package com.service;
 
-import com.dao.ChartDataDao;
 import com.dao.TaskCompletionDao;
 import com.pojo.TaskCompletion;
 import org.springframework.stereotype.Service;

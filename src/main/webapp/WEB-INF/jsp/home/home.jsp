@@ -13,7 +13,7 @@
 <jsp:include page="header.jsp" flush="true"/>
 <jsp:include page="leftTree.jsp" flush="true"/>
 <div style="float: left;display: inline;padding-left: 10px;width: auto">
-    <img src="../../../img/njtech.jpg"/>
+    <img src="${pageContext.request.contextPath }/img/njtech.jpg"/>
 </div>
 </body>
 </html>

@@ -21,7 +21,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    已完成的任务
+                    查询任务完成详情
                 </h1>
             </div>
         </div>
@@ -29,6 +29,15 @@
 </div>
 <jsp:include page="../home/leftTree.jsp" flush="true"/>
 <div style="float:left;display: inline;padding-left: 10px;width: auto">
+    <div style="margin-left:20px">
+        <h3>
+            任务经度：${task.longitude}&nbsp; &nbsp;&nbsp; &nbsp;
+            任务纬度：${task.latitude}&nbsp; &nbsp;&nbsp; &nbsp;
+            任务状态：${task.status}
+        </h3>
+        <hr />
+        <h3>完成数据：</h3>
+    </div>
     <c:forEach var="taskCompletion" items="${requestScope.get('list')}">
         <div style="float:left;padding-left: 20px;">
             <img src="showPic/${taskCompletion.taskPic}" style="width:250px; height: 200px;"/>

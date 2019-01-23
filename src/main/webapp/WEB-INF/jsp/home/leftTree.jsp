@@ -9,9 +9,9 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" href="../../../css/zTreeStyle/zTreeStyle.css" type="text/css">
-    <script type="text/javascript" src="../../../js/jquery-1.4.2.js"></script>
-    <script type="text/javascript" src="../../../js/jquery-ztree-2.5.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-ztree-2.5.js"></script>
     <script language="JavaScript">
 
         //对整个树的特性的一个描述
@@ -61,19 +61,19 @@
         function zTreeOnClick(treeNode) {
             //此处编写需要完成的业务逻辑代码，实现你想要的 主内容的框架进行页面跳转
             if (treeNode.id == 11) {
-                window.location.href = "${path }/taskGroup/toRelease";
+                window.location.href = "${pageContext.request.contextPath }/taskGroup/toRelease";
             } else if (treeNode.id == 12) {
-                window.location.href = "${path }/task/toReleaseTask";
+                window.location.href = "${pageContext.request.contextPath }/task/toReleaseTask";
             } else if (treeNode.id == 21) {
-                window.location.href = "${path }/taskGroup/allTaskGroup";
+                window.location.href = "${pageContext.request.contextPath }/taskGroup/allTaskGroup";
             } else if (treeNode.id == 22) {
-                window.location.href = "${path }/task/allTask";
+                window.location.href = "${pageContext.request.contextPath }/task/allTask";
             } else if (treeNode.id == 31) {
-                window.location.href = "${path }/chartData/taskCompletionRate";
+                window.location.href = "${pageContext.request.contextPath }/chartData/taskCompletionRate";
             } else if (treeNode.id == 32) {
-                window.location.href = "${path }/chartData/userAcceptanceRate";
+                window.location.href = "${pageContext.request.contextPath }/chartData/userAcceptanceRate";
             } else if (treeNode.id == 4) {
-                window.location.href = "${path }/home";
+                window.location.href = "${pageContext.request.contextPath }/home";
             }
         }
     </script>
