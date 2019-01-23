@@ -82,7 +82,7 @@
             }
 
             var form = document.forms[0];
-            form.action = "${basePath }/task/releaseTask";
+            form.action = "<%=request.getContextPath()%>/task/releaseTask";
             form.method = "post";
             form.submit();
         }

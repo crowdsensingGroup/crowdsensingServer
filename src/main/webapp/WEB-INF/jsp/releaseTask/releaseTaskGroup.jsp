@@ -117,7 +117,7 @@
             }
 
             var form = document.forms[0];
-            form.action = "${basePath }/taskGroup/releaseTask";
+            form.action = "<%=request.getContextPath()%>/taskGroup/releaseTask";
             form.method = "post";
             form.submit();
         }
