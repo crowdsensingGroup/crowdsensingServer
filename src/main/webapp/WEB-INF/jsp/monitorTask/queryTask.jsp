@@ -49,7 +49,7 @@
         <script type="text/javascript">
             function queryTask() {
                 var form = document.forms[0];
-                form.action = "${basePath }/task/queryByCondition";
+                form.action = "<%=request.getContextPath()%>/task/queryByCondition";
                 form.method = "post";
                 form.submit();
             }
