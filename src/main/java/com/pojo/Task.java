@@ -8,6 +8,7 @@ public class Task {
     private int id;
     private int taskGroupId;
     private String taskGroupName;
+    private String taskType;
     private float longitude;
     private float latitude;
     private String status;
@@ -67,5 +68,13 @@ public class Task {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
     }
 }

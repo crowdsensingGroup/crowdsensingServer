@@ -20,4 +20,9 @@ public class TaskCompletionImp implements TaskCompletionService {
     public List<TaskCompletion> queryTaskCompletionByTaskId(int taskId) {
         return taskCompletionDao.queryTaskCompletionByTaskId(taskId);
     }
+
+    @Override
+    public int addTaskCompletion(TaskCompletion taskCompletion) {
+        return taskCompletionDao.addTaskCompletion(taskCompletion);
+    }
 }

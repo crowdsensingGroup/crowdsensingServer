@@ -19,4 +19,9 @@
         user_acceptance
         WHERE taskId=#{taskId}
     </select>
+
+    <insert id="addUserAcceptance" parameterType="UserAcceptance">
+        INSERT INTO user_acceptance(taskId,acceptLongtitude,acceptLatitude,travelDistance)
+        VALUE (#{taskId},#{acceptLongtitude}, #{acceptLatitude}, #{travelDistance})
+    </insert>
 </mapper>

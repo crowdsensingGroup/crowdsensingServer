@@ -41,4 +41,9 @@ public class TaskServiceImp implements TaskService {
     public List<Task> queryTaskByCondition(String taskGroupName, String status) {
         return taskDao.queryTaskByCondition(taskGroupName, status);
     }
+
+    @Override
+    public Task getTask() {
+        return taskDao.getTask();
+    }
 }

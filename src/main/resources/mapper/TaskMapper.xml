@@ -7,6 +7,7 @@
         <id property="id" column="id"/>
         <result property="taskGroupId" column="taskGroupId"/>
         <result property="taskGroupName" column="taskGroupName"/>
+        <result property="taskType" column="taskType"/>
         <result property="longitude" column="longitude"/>
         <result property="latitude" column="latitude"/>
         <result property="status" column="status"/>
@@ -52,5 +53,12 @@
         <if test="status != null and status != '' ">
             AND status=#{status}
         </if>
+    </select>
+
+    <select id="getTask" resultType="Task">
+        select task.id,task_group.name as taskGroupName,task_group.taskType as taskType,longitude,latitude,status,task.remark
+        from task inner join task_group on task.taskGroupId = task_group.id
+        where task_group.acceptanceDeadline > now()
+        order by rand() LIMIT 1
     </select>
 </mapper>

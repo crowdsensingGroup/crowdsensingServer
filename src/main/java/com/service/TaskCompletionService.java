@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface TaskCompletionService {
     List<TaskCompletion> queryTaskCompletionByTaskId(int taskId);
+
+    int addTaskCompletion(TaskCompletion taskCompletion);
 }

@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface UserAcceptanceDao {
     List<UserAcceptance> queryUserAcceptanceByTaskId(int taskId);
+
+    int addUserAcceptance(UserAcceptance userAcceptance);
 }

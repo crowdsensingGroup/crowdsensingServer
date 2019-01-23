@@ -23,7 +23,7 @@ public class TaskGroupController {
     @RequestMapping("/releaseTask")
     public String releaseTask(TaskGroup taskGroup) {
         taskGroupService.addTaskGroup(taskGroup);
-        return "redirect:/taskGroup/toAllTaskGroup";
+        return "redirect:/taskGroup/allTaskGroup";
     }
 
     @RequestMapping("allTaskGroup")

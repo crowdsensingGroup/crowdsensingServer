@@ -16,6 +16,8 @@ public interface TaskService {
 
     int updateTask(Task task);
 
+    Task getTask();
+
     Task queryTaskById(int id);
 
     List<Task> queryAllTask();

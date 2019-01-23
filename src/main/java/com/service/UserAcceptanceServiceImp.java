@@ -17,4 +17,9 @@ public class UserAcceptanceServiceImp implements UserAcceptanceService{
     public List<UserAcceptance> queryUserAcceptanceByTaskId(int taskId) {
         return userAcceptanceDao.queryUserAcceptanceByTaskId(taskId);
     }
+
+    @Override
+    public int addUserAcceptance(UserAcceptance userAcceptance) {
+        return userAcceptanceDao.addUserAcceptance(userAcceptance);
+    }
 }
