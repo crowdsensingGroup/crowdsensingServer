@@ -21,7 +21,7 @@
     </select>
 
     <insert id="addUserAcceptance" parameterType="UserAcceptance">
-        INSERT INTO user_acceptance(taskId,acceptLongtitude,acceptLatitude,travelDistance)
-        VALUE (#{taskId},#{acceptLongtitude}, #{acceptLatitude}, #{travelDistance})
+        INSERT INTO user_acceptance(taskId,acceptLongitude,acceptLatitude,travelDistance)
+        VALUE (#{taskId},#{acceptLongitude}, #{acceptLatitude}, #{travelDistance})
     </insert>
 </mapper>

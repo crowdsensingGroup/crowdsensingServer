@@ -64,12 +64,13 @@ public class TaskController {
 
     @RequestMapping(value = "/getTask")
     @ResponseBody
-    public Map<String, Object> getTask() {
+    public Map<String, Object> getTask(float latitude, float longitude) {
         Task task = taskService.getTask();
         Map<String, Object> results = new HashMap<String, Object>();
         results.put("latitude", task.getLatitude());
         results.put("longitude", task.getLongitude());
         results.put("taskType", task.getTaskType());
+        results.put("taskId", task.getId());
         return results;
     }
 
@@ -77,8 +78,13 @@ public class TaskController {
     @ResponseBody
     public Map<String, Object> acceptTask(float latitude, float longitude, int taskId) {
         UserAcceptance userAcceptance = new UserAcceptance();
-        userAcceptance.setAcceptLatitude((float) (Math.round((latitude + 0.0001) * 10000)) / 10000);
-        userAcceptance.setAcceptLongitude((float) (Math.round((longitude + 0.0001) * 10000)) / 10000);
+
+        Random random = new Random();
+        float latOffset = random.nextInt(50 + 50 + 1) - 50;
+        float lngOffset = random.nextInt(50 + 50 + 1) - 50;
+        userAcceptance.setAcceptLatitude(latitude + latOffset / 10000);
+        userAcceptance.setAcceptLongitude(longitude + lngOffset / 10000);
+
         userAcceptance.setTaskId(taskId);
         userAcceptance.setTravelDistance(50 + new Random().nextInt(1200));
         userAcceptanceService.addUserAcceptance(userAcceptance);
